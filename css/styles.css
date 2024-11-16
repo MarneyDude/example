@@ -169,6 +169,7 @@ header {
 .nav-list {
   display: flex;
   gap: 32px;
+  flex-shrink: 0;
 }
 .list-link {
   display: block;
@@ -178,14 +179,28 @@ header {
   text-align: left;
   padding-top: 39px;
   padding-bottom: 33px;
-  transition: font-size 250ms ease-in;
+  transition: font-weight 250ms ease-in;
 }
 
 .list-link:hover,
 .list-link:focus,
 .list-link:active {
-  font-size: 25px;
   font-weight: 700;
+}
+
+.list-link::before {
+  content: "";
+  position: absolute;
+  bottom: 25%;
+  width: 5%;
+  height: 3px;
+  background-color: transparent;
+}
+
+.list-link::before:hover,
+.list-link::before:active,
+.list-link::before:focus {
+  background-color: #00486d;
 }
 
 .address {
@@ -342,7 +357,7 @@ header {
   justify-content: end;
   align-items: end;
   border-radius: 2px;
-  background-image: url(/images/man.jpg);
+  background-image: url(./images/man.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
